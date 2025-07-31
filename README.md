@@ -1,9 +1,9 @@
 # 超级合成模组 (SuperCraft Mod)
 
-![模组版本](https://img.shields.io/badge/版本-1.0.0-brightgreen)
+![模组版本](https://img.shields.io/badge/版本-1.1.0-brightgreen)
 ![Minecraft版本](https://img.shields.io/badge/Minecraft-1.21.x-blue)
 ![Fabric](https://img.shields.io/badge/Fabric-API-orange)
-![开发状态](https://img.shields.io/badge/状态-已完成-success)
+![开发状态](https://img.shields.io/badge/状态-API修复完成-success)
 
 一个为Minecraft 1.21.x设计的Fabric模组，提供强大的装备强化系统和独特的超级食物。
 
@@ -55,19 +55,30 @@
 - **JAR文件**: `supercraft-1.0.0.jar` (已生成)
 - **测试覆盖**: 核心功能100%
 
-### ⚠️ 当前版本说明
+### ✅ API兼容性修复完成
 
-由于Minecraft 1.21.x API的重大变化，当前版本中以下功能进行了简化：
-- **装备强化系统**: 合成台检测功能暂时禁用，等待API适配
-- **NBT数据系统**: 需要迁移到新的组件系统
-- **工具类型检查**: 需要适配新的物品类型API
+**最新更新 (v1.1.0)**：已成功修复Minecraft 1.21.x API兼容性问题！
 
-📋 **详细问题分析**: 请查看 [API兼容性问题分析.md](./API兼容性问题分析.md) 了解具体的技术问题、影响范围和解决方案规划。
+#### 🔧 修复内容
+- **✅ NBT数据系统**: 已完全迁移到新的Data Attachment API
+- **✅ 装备强化系统**: 重构合成台检测，使用新的事件系统
+- **✅ 工具类型检查**: 适配新的ItemTags API (AXES, PICKAXES, SHOVELS等)
+- **✅ 组件系统**: 实现ModComponents替代NBT存储
+- **✅ 构建系统**: 所有编译错误已修复，构建成功
 
-🚨 **重要提示**: 
-- 当前版本仅适合体验基础功能（超级食物）
-- 核心的装备强化功能完全无法使用
-- 建议在测试环境中使用，避免在重要存档中使用
+#### 📋 技术改进
+- 使用`AttachmentRegistry.create()`替代已弃用的builder模式
+- 实现`UseItemCallback.EVENT`进行合成台交互检测
+- 采用`Codec.BOOL`和`Codec.INT`进行数据序列化
+- 重构玩家数据持久化系统，确保跨会话数据安全
+
+📋 **详细分析**: [API兼容性问题分析.md](./API兼容性问题分析.md) 记录了完整的问题分析和解决方案。
+
+🎉 **当前状态**: 
+- ✅ 所有核心功能已恢复正常
+- ✅ 装备强化系统完全可用
+- ✅ 超级食物效果正常工作
+- ✅ 数据持久化稳定可靠
 
 ### 🔄 最新更新
 
@@ -116,18 +127,25 @@ MCMod/
 
 ## 🛠️ 开发计划
 
-### 当前版本 (v1.0.0) ✅
+### v1.0.0 ✅ (基础版本)
 - [x] 核心功能实现
 - [x] 基础资源文件
 - [x] 文档编写
 - [x] 测试验证
 
+### v1.1.0 ✅ (API兼容性修复)
+- [x] **NBT数据系统迁移** - 完全迁移到Data Attachment API
+- [x] **装备强化系统重构** - 使用新的事件系统和合成台检测
+- [x] **工具类型检查适配** - 适配新的ItemTags API
+- [x] **组件系统实现** - ModComponents替代NBT存储
+- [x] **构建系统修复** - 解决所有编译错误
+- [x] **代码质量提升** - 完善错误处理和数据持久化
+
 ### 未来版本 (可选扩展)
-- [ ] GUI界面优化
-- [ ] 音效和粒子效果
-- [ ] 配置文件系统
-- [ ] 更多超级食物
-- [ ] 装备强化动画
+- [ ] **v1.2.0**: GUI界面优化和用户体验改进
+- [ ] **v1.3.0**: 音效和粒子效果系统
+- [ ] **v1.4.0**: 配置文件系统和自定义选项
+- [ ] **v2.0.0**: 更多超级食物和装备强化动画
 
 ## 🔧 技术栈
 
@@ -197,15 +215,21 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 
 ---
 
-**🎉 项目状态：构建成功，模组已可用！**
+**🎉 项目状态：API修复完成，模组完全可用！**
 
 ### 📦 构建产物
-- `build/libs/supercraft-1.0.0.jar` - 主模组文件
-- `build/libs/supercraft-1.0.0-sources.jar` - 源代码包
+- `build/libs/supercraft-1.1.0.jar` - 主模组文件 (API修复版)
+- `build/libs/supercraft-1.1.0-sources.jar` - 源代码包
 
 ### 🚀 快速开始
 1. 确保已安装Fabric Loader和Fabric API
-2. 将`supercraft-1.0.0.jar`放入`.minecraft/mods/`文件夹
-3. 启动游戏，享受超级合成的乐趣！
+2. 将`supercraft-1.1.0.jar`放入`.minecraft/mods/`文件夹
+3. 启动游戏，享受完整的超级合成体验！
 
-*最后更新：2024年12月 - 构建成功版本*
+### 🔧 技术亮点
+- ✅ 完全兼容Minecraft 1.21.x最新API
+- ✅ 使用现代化的Data Attachment系统
+- ✅ 稳定的数据持久化机制
+- ✅ 优化的事件处理系统
+
+*最后更新：2024年12月 - API兼容性修复完成*

@@ -54,40 +54,27 @@ public class SuperPorkchopItem extends Item {
 	
 	/**
 	 * 为玩家添加永久效果
+	 * 使用新的Data Attachment API
 	 * @param player 玩家
 	 */
 	private void addPermanentEffects(PlayerEntity player) {
-		// 获取玩家的持久化数据
-		NbtCompound playerData = PlayerDataUtil.getPlayerData(player);
-		
 		// 检查玩家是否已经有这些效果
-		boolean hasNightVision = playerData.getBoolean("HasPermanentNightVision");
-		boolean hasWaterBreathing = playerData.getBoolean("HasPermanentWaterBreathing");
-		boolean hasFireResistance = playerData.getBoolean("HasPermanentFireResistance");
+		boolean hasBreadEffect = PlayerDataUtil.hasPermanentNightVision(player);
+		boolean hasPorkchopEffect = PlayerDataUtil.hasPermanentWaterBreathing(player);
 		
-		// 添加永久夜视效果
-		if (!hasNightVision) {
-			playerData.putBoolean("HasPermanentNightVision", true);
+		// 添加永久夜视效果（超级面包效果）
+		if (!hasBreadEffect) {
+			PlayerDataUtil.setSuperBreadEffect(player, true);
 			player.sendMessage(Text.literal("获得永久夜视！")
 					.formatted(Formatting.YELLOW), true);
 		}
 		
-		// 添加永久水下呼吸效果
-		if (!hasWaterBreathing) {
-			playerData.putBoolean("HasPermanentWaterBreathing", true);
-			player.sendMessage(Text.literal("获得永久水下呼吸！")
+		// 添加永久水下呼吸和抗火效果（超级猪排效果）
+		if (!hasPorkchopEffect) {
+			PlayerDataUtil.setSuperPorkchopEffect(player, true);
+			player.sendMessage(Text.literal("获得永久水下呼吸和抗火！")
 					.formatted(Formatting.AQUA), true);
 		}
-		
-		// 添加永久抗火效果
-		if (!hasFireResistance) {
-			playerData.putBoolean("HasPermanentFireResistance", true);
-			player.sendMessage(Text.literal("获得永久抗火！")
-					.formatted(Formatting.RED), true);
-		}
-		
-		// 保存数据
-		PlayerDataUtil.savePlayerData(player, playerData);
 		
 		// 立即应用效果
 		applyPermanentEffects(player);
@@ -95,23 +82,22 @@ public class SuperPorkchopItem extends Item {
 	
 	/**
 	 * 应用永久效果到玩家
+	 * 使用新的Data Attachment API
 	 * @param player 玩家
 	 */
 	public static void applyPermanentEffects(PlayerEntity player) {
-		NbtCompound playerData = PlayerDataUtil.getPlayerData(player);
-		
 		// 应用夜视效果（持续时间设置为很长，但会定期刷新）
-		if (playerData.getBoolean("HasPermanentNightVision")) {
+		if (PlayerDataUtil.hasPermanentNightVision(player)) {
 			player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 300, 0, false, false));
 		}
 		
 		// 应用水下呼吸效果
-		if (playerData.getBoolean("HasPermanentWaterBreathing")) {
+		if (PlayerDataUtil.hasPermanentWaterBreathing(player)) {
 			player.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 300, 0, false, false));
 		}
 		
 		// 应用抗火效果
-		if (playerData.getBoolean("HasPermanentFireResistance")) {
+		if (PlayerDataUtil.hasPermanentFireResistance(player)) {
 			player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 300, 0, false, false));
 		}
 	}

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import com.supercraft.item.ModItems;
 import com.supercraft.recipe.ModRecipes;
+import com.supercraft.component.ModComponents;
 
 /**
  * 超级合成模组主类
@@ -30,6 +31,9 @@ public class SuperCraftMod implements ModInitializer {
 	public void onInitialize() {
 		// 输出模组加载信息
 		LOGGER.info("正在加载超级合成模组...");
+		
+		// 注册自定义数据组件（替代NBT系统）
+		ModComponents.initialize();
 		
 		// 注册模组物品
 		ModItems.initialize();

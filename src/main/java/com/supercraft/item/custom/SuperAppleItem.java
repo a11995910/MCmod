@@ -52,25 +52,20 @@ public class SuperAppleItem extends Item {
 	
 	/**
 	 * 增加玩家的攻击距离
+	 * 使用新的Data Attachment API
 	 * @param player 玩家
 	 */
 	private void increaseAttackRange(PlayerEntity player) {
-		// 获取玩家的持久化数据
-		NbtCompound playerData = PlayerDataUtil.getPlayerData(player);
-		
 		// 获取当前的攻击距离加成
-		int currentRangeBonus = playerData.getInt("SuperAppleRangeBonus");
+		int currentRangeBonus = PlayerDataUtil.getAttackRangeBonus(player);
 		
 		// 增加1格攻击距离（最多叠加到10格）
 		if (currentRangeBonus < 10) {
 			currentRangeBonus++;
-			playerData.putInt("SuperAppleRangeBonus", currentRangeBonus);
 			
-			// 同时设置范围伤害标记
-			playerData.putBoolean("HasSuperAppleEffect", true);
-			
-			// 保存数据
-			PlayerDataUtil.savePlayerData(player, playerData);
+			// 使用新的API设置数据
+			PlayerDataUtil.setSuperAppleRange(player, currentRangeBonus);
+			PlayerDataUtil.setSuperAppleEffect(player, true);
 			
 			player.sendMessage(Text.literal("攻击距离增加！当前加成: +" + currentRangeBonus + " 格")
 					.formatted(Formatting.YELLOW), true);
