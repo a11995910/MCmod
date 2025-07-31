@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "supercraft",
+	"version": "${version}",
+	"name": "超级合成",
+	"description": "一个提供装备强化和超级食物合成的模组",
+	"authors": [
+		"SuperCraft Team"
+	],
+	"contact": {
+		"homepage": "https://github.com/SuperCraft/SuperCraft",
+		"sources": "https://github.com/SuperCraft/SuperCraft"
+	},
+	"license": "MIT",
+	"icon": "assets/supercraft/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.supercraft.SuperCraftMod"
+		],
+		"client": [
+			"com.supercraft.SuperCraftModClient"
+		]
+	},
+	"mixins": [
+		"supercraft.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "~1.21.0",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

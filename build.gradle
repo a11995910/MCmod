@@ -1,0 +1,73 @@
+plugins {
+	id 'fabric-loom' version '1.8.9'
+	id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+// 设置Java版本为21，因为Minecraft 1.21.x需要Java 21
+java {
+	toolchain.languageVersion = JavaLanguageVersion.of(21)
+	// Loom会自动附加源码和javadoc jar
+	withSourcesJar()
+}
+
+repositories {
+	// 添加其他仓库
+	mavenCentral()
+}
+
+dependencies {
+	// 要更改映射版本，请参见 https://fabricmc.net/develop
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	// Fabric API。这是技术上可选的，但你可能会在某个时候需要它。
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.release = 21
+}
+
+java {
+	// Loom会自动附加源码和javadoc jar
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.archives_base_name}"}
+	}
+}
+
+// 配置maven发布（可选）
+publishing {
+	publications {
+		maven(MavenPublication) {
+			from components.java
+		}
+	}
+
+	// 参见 https://docs.gradle.org/current/userguide/publishing_maven.html 了解如何发布到Maven Central
+	repositories {
+		// 在这里添加仓库以发布到
+	}
+}

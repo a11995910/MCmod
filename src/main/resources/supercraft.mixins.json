@@ -1,0 +1,16 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "com.supercraft.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"refmap": "supercraft.refmap.json",
+	"mixins": [
+		"PlayerEntityMixin",
+		"LivingEntityMixin"
+	],
+	"client": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

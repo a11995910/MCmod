@@ -1,0 +1,22 @@
+{
+	"item.supercraft.super_bread": "Super Bread",
+	"item.supercraft.super_apple": "Super Apple",
+	"item.supercraft.super_porkchop": "Super Porkchop",
+	
+	"tooltip.supercraft.super_bread": "Increases max health by 1 and grants random positive effects when consumed",
+	"tooltip.supercraft.super_apple": "Increases attack range and grants area damage when consumed",
+	"tooltip.supercraft.super_porkchop": "Grants permanent night vision, water breathing, and fire resistance when consumed",
+	
+	"enhancement.supercraft.level": "Enhancement Level: +%s",
+	"enhancement.supercraft.multiplier": "Attribute Multiplier: %.1fx",
+	
+	"message.supercraft.health_increased": "You feel your body becoming stronger!",
+	"message.supercraft.attack_range_increased": "Your attack range has increased! You can now perform area attacks!",
+	"message.supercraft.permanent_effects": "You have gained permanent special abilities!",
+	"message.supercraft.enhancement_success": "Equipment enhancement successful!",
+	"message.supercraft.max_range_reached": "Attack range has reached maximum value!",
+	
+	"effect.supercraft.permanent_night_vision": "Gained permanent night vision!",
+	"effect.supercraft.permanent_water_breathing": "Gained permanent water breathing!",
+	"effect.supercraft.permanent_fire_resistance": "Gained permanent fire resistance!"
+}

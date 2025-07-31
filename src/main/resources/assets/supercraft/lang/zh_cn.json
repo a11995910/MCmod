@@ -1,0 +1,22 @@
+{
+	"item.supercraft.super_bread": "超级面包",
+	"item.supercraft.super_apple": "超级苹果",
+	"item.supercraft.super_porkchop": "超级猪排",
+	
+	"tooltip.supercraft.super_bread": "食用后增加1点血量上限并获得随机正向效果",
+	"tooltip.supercraft.super_apple": "食用后增加攻击距离并获得范围攻击能力",
+	"tooltip.supercraft.super_porkchop": "食用后获得永久夜视、水下呼吸和抗火效果",
+	
+	"enhancement.supercraft.level": "强化等级: +%s",
+	"enhancement.supercraft.multiplier": "属性倍数: %.1fx",
+	
+	"message.supercraft.health_increased": "你感到身体变得更加强壮了！",
+	"message.supercraft.attack_range_increased": "你的攻击距离增加了！现在你可以进行范围攻击！",
+	"message.supercraft.permanent_effects": "你获得了永久的特殊能力！",
+	"message.supercraft.enhancement_success": "装备强化成功！",
+	"message.supercraft.max_range_reached": "攻击距离已达到最大值！",
+	
+	"effect.supercraft.permanent_night_vision": "获得永久夜视！",
+	"effect.supercraft.permanent_water_breathing": "获得永久水下呼吸！",
+	"effect.supercraft.permanent_fire_resistance": "获得永久抗火！"
+}
