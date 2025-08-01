@@ -19,7 +19,7 @@
 			"com.supercraft.SuperCraftMod"
 		],
 		"client": [
-			"com.supercraft.SuperCraftModClient"
+			"com.supercraft.SuperCraftClientMod"
 		]
 	},
 	"mixins": [

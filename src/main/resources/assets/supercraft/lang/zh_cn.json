@@ -18,5 +18,12 @@
 	
 	"effect.supercraft.permanent_night_vision": "获得永久夜视！",
 	"effect.supercraft.permanent_water_breathing": "获得永久水下呼吸！",
-	"effect.supercraft.permanent_fire_resistance": "获得永久抗火！"
+	"effect.supercraft.permanent_fire_resistance": "获得永久抗火！",
+	
+	"key.supercraft.chain_mining": "连锁挖矿",
+	"category.supercraft.mining": "超级合成 - 挖矿",
+	
+	"message.supercraft.chain_mining.enabled": "连锁挖矿模式已启用",
+	"message.supercraft.chain_mining.disabled": "连锁挖矿模式已禁用",
+	"message.supercraft.chain_mining.result": "连锁挖掘了 %d 个方块"
 }

@@ -18,5 +18,12 @@
 	
 	"effect.supercraft.permanent_night_vision": "Gained permanent night vision!",
 	"effect.supercraft.permanent_water_breathing": "Gained permanent water breathing!",
-	"effect.supercraft.permanent_fire_resistance": "Gained permanent fire resistance!"
+	"effect.supercraft.permanent_fire_resistance": "Gained permanent fire resistance!",
+	
+	"key.supercraft.chain_mining": "Chain Mining",
+	"category.supercraft.mining": "SuperCraft - Mining",
+	
+	"message.supercraft.chain_mining.enabled": "Chain Mining Mode Enabled",
+	"message.supercraft.chain_mining.disabled": "Chain Mining Mode Disabled",
+	"message.supercraft.chain_mining.result": "Chain mined %d blocks"
 }
